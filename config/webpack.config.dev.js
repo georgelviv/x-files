@@ -12,7 +12,7 @@ module.exports = {
     filename: 'app.js',
     path: paths.PUBLIC_SRC_DIR 
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   watch: true,
   module: {
     rules: [
@@ -35,6 +35,11 @@ module.exports = {
         })
       }
     ]
+  },
+  resolve: {
+    alias: {
+      shared: paths.WEB_SHARED_DIR
+    }
   },
   plugins: [
     new CleanWebpackPlugin([paths.PUBLIC_SRC_DIR]),

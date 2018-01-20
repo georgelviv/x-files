@@ -1,3 +1,9 @@
-const hello = 'hello';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log(hello);
+import 'babel-polyfill';
+
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);

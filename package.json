@@ -1,7 +1,7 @@
 {
   "name": "x-files",
   "version": "0.0.1",
-  "description": "Maybe in future",
+  "description": "Maybe in future.",
   "main": "server/index.js",
   "scripts": {
     "start": "npm run public && npm run server",

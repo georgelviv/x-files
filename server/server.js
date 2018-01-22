@@ -7,7 +7,7 @@ const serverOptions = {...certificates};
 
 https
   .createServer(serverOptions, app)
-  .listen(PORT, IP_ADDRESS, err => {
+  .listen(PORT, err => {
     if (err) throw err;
     console.log(`Server started at port: ${ PORT }`)
   });

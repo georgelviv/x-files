@@ -1,9 +1,8 @@
-const PORT = 8000;
-const IP_ADDRESS = '127.0.0.1';
+const PORT = process.env.PORT || 8000;
 const CSP_DIRECTIVES = [
   'fonts.googleapis.com', 'fonts.gstatic.com'
 ];
 
 module.exports = {
-  PORT, CSP_DIRECTIVES, IP_ADDRESS
+  PORT, CSP_DIRECTIVES
 };

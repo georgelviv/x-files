@@ -4,6 +4,7 @@
   "description": "Maybe in future",
   "main": "server/index.js",
   "scripts": {
+    "start": "npm run public && npm run server",
     "public": "webpack --config config/webpack.config.dev.js",
     "server": "node server",
     "nodemon": "nodemon node server"

@@ -3,7 +3,6 @@ const paths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -12,9 +11,15 @@ module.exports = {
     filename: 'app.js',
     path: paths.PUBLIC_SRC_DIR 
   },
-  devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.tsx$/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          configFileName: './config/tsconfig.json'
+        },
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -38,11 +43,13 @@ module.exports = {
   resolve: {
     alias: {
       shared: paths.WEB_SHARED_DIR
-    }
+    },
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   plugins: [
-    new CleanWebpackPlugin([paths.PUBLIC_SRC_DIR]),
-    new UglifyJSPlugin(),
+    new CleanWebpackPlugin([paths.PUBLIC_SRC_DIR], {
+      root: paths.ROOT
+    }),
     new HtmlWebpackPlugin({
       filename: path.join(paths.PUBLIC_SRC_DIR, 'index.html'),
       template: path.join(paths.WEB_DIR, 'index.html'),
